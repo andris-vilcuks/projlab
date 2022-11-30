@@ -33,10 +33,10 @@ if datne:
     st.dataframe(komandas)
 
     # Sānjosla - Mājnieku komandas izvēle
-    majnieku_izvelne = " ", sorted(komandas.Team.unique())
+    majnieku_izvelne = sorted(komandas.Team.unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
 
     # Sānjosla - Viesu komandas izvēle
-    viesu_izvelne = " ", sorted(komandas.Team.unique())
+    viesu_izvelne = sorted(komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
