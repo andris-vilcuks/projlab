@@ -28,10 +28,10 @@ if datne:
 
     # Datu tabulas priekšskatījums
     st.header("Tabulas priekšskatījums")
-    st.dataframe(df)
+    st.dataframe(komandas)
 
     # Mājnieku komandas izvēle
-    majnieki = sorted(playerstats.Tm.unique())
-    selected_team = st.sidebar.multiselect('Team', sorted_unique_team, sorted_unique_team)
+    majnieku_izvelne = sorted(komandas.Team.unique())
+    majnieki = st.sidebar.selectbox('Komandas', majnieku_izvelne)
 
     # Viesu komandas izvēle
