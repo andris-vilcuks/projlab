@@ -36,7 +36,7 @@ if datne:
     majnieku_izvelne = sorted(df_komandas.Team.unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
     # Tabulas priekšskatījums
-    df_majnieki = playerstats[(playerstats.Team.isin(majnieku_izvelne))]
+    df_majnieki = playerstats[(df_komandas.Team.isin(majnieku_izvelne))]
     st.dataframe(df_majnieki)
 
     # Viesi
