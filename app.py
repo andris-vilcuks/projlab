@@ -36,8 +36,8 @@ if datne:
     majnieku_izvelne = sorted(df_komandas.Team.unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
     # Tabulas priekšskatījums
-    
-    st.dataframe(df_majnieki)
+
+    # st.dataframe(df_majnieki)
 
     # Viesi
     # Sānjosla - Viesu komandas izvēle
