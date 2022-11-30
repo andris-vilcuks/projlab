@@ -24,7 +24,7 @@ if sagataves == False:
 if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
-    komandas = raw.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD",], axis=1)
+    komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD",], axis=1)
 
     # Datu tabulas priekšskatījums
     st.header("Tabulas priekšskatījums")
