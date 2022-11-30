@@ -31,13 +31,15 @@ if datne:
     st.header("Tabulas priekšskatījums")
     st.dataframe(df_komandas)
 
-    # Sānjosla - Mājnieku komandas izvēle
+    # Mājnieki
+    # Sānjosla - komandas izvēle
     majnieku_izvelne = sorted(df_komandas.Team.unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
+    # Tabulas priekšskatījums
+    
+    st.dataframe(df_majnieki)
 
+    # Viesi
     # Sānjosla - Viesu komandas izvēle
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
-
-    # Mājnieku tabulas priekšskatījums
-    # st.dataframe(df_majnieki)
