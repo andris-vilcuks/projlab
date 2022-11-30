@@ -11,4 +11,4 @@ if datne:
     df = pd.read_csv(datne)
 
     st.header("Tabulas priekšskatījums")
-    st.dataframe(df.head())
+    st.dataframe(df)
