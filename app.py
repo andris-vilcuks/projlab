@@ -14,3 +14,4 @@ if datne:
     st.dataframe(df)
 
     st.sidebar.header('Lietotāja ievade')
+    gads = st.sidebar.selectbox('Gads', list(reversed(range(1950,2024))))
