@@ -12,3 +12,5 @@ if datne:
 
     st.header("Tabulas priekšskatījums")
     st.dataframe(df)
+
+    st.sidebar.header('Lietotāja ievade')
