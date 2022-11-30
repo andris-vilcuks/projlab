@@ -7,8 +7,8 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 
 datne = st.file_uploader("Augšupielādēt CSV datni", type=".csv")
 
-if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+if datne:
+    df = pd.read_csv(datne)
 
     st.header("Tabulas priekšskatījums")
     st.dataframe(df.head())
