@@ -24,14 +24,19 @@ if sagataves == False:
 if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
-    komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD",], axis=1)
+
+    # Nepieciešamo datu atlase (atmet liekos datus)
+    komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
 
     # Datu tabulas priekšskatījums
     st.header("Tabulas priekšskatījums")
     st.dataframe(komandas)
 
-    # Mājnieku komandas izvēle
+    # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(komandas.Team.unique())
-    majnieki = st.sidebar.selectbox('Komandas', majnieku_izvelne)
+    majnieki = st.sidebar.selectbox('Mājnieki', 0, (" ",majnieku_izvelne))
 
-    # Viesu komandas izvēle
+    # Sānjosla - Viesu komandas izvēle
+    viesu_izvelne = sorted(komandas.Team.unique())
+    viesi = st.sidebar.selectbox('Viesi', 0, (" ",viesu_izvelne))
+
