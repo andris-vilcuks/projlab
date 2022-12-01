@@ -83,12 +83,12 @@ if datne:
 
     rez1,rez2,rez3,rez4,rez5 = st.columns(5)
     with rez1:
-        metric("PTS", m_pts, m_pts - v_pts)
+        st.metric("PTS", m_pts, m_pts - v_pts)
     with rez2:
-        metric("REB", m_reb, m_reb - v_reb)
+        st.metric("REB", m_reb, m_reb - v_reb)
     with rez3:
-        metric("AST", m_ast, m_ast - v_ast)
+        st.metric("AST", m_ast, m_ast - v_ast)
     with rez4:
-        metric("STL", m_stl, m_stl - v_stl)
+        st.metric("STL", m_stl, m_stl - v_stl)
     with rez5:
-        metric("+/-", m_pm, m_pm - v_pm)
+        st.metric("+/-", m_pm, m_pm - v_pm)
