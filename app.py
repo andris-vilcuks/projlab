@@ -25,24 +25,27 @@ if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase (atmet liekos datus)
-    df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
+    if sagataves == True:
+        df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
+    else:
+        df_komandas = df
 
     # Datu tabulas priekšskatījums
     st.header("Tabulas priekšskatījums")
     st.dataframe(df_komandas)
 
-    # Mājnieki
-    # Sānjosla - komandas izvēle
+    # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
-    # Atlases tabulas priekšskatījums
-    df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
-    st.dataframe(df_majnieki)
 
-    # Viesi
-    # Sānjosla - Viesu komandas izvēle
+     # Sānjosla - Viesu komandas izvēle
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
-    # Atlases tabulas priekšskatījums
+
+    # Mājnieku atlases tabulas priekšskatījums
+    df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
+    st.dataframe(df_majnieki)
+   
+    # Viesu atlases tabulas priekšskatījums
     df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
     st.dataframe(df_viesi)
