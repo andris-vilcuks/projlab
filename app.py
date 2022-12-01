@@ -11,7 +11,7 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 st.sidebar.header("Parametri")
 
 # Datnes izvēlne
-sagataves = st.checkbox("Izmantot iepriekš sagatavotas tabulas", True)
+sagataves = st.sidebar.checkbox("Izmantot iepriekš sagatavotas tabulas", True)
 
 # Ja ir ieķeksēts, tad izvēlas jau sagatavotu tabulu
 if sagataves == True:
