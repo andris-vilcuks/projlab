@@ -88,27 +88,27 @@ if datne:
     v_ast = df_viesi.iloc[0,3]
     ast = m_ast - v_ast
     if ast >= 0:
-        a = 3
+        c = 3
     else:
-        a = -3
+        c = -3
 
     # Steals(STL) 1
     m_stl = df_majnieki.iloc[0,4]
     v_stl = df_viesi.iloc[0,4]
     stl = m_stl - v_stl
     if stl >= 0:
-        a = 1
+        d = 1
     else:
-        a = -1
+        d = -1
 
     # +/- 4
     m_pm = df_majnieki.iloc[0,5]
     v_pm = df_viesi.iloc[0,5]
     pm = m_pm - v_pm
     if pm >= 0:
-        a = 4
+        e = 4
     else:
-        a = -4
+        e = -4
 
 
     # Aprēķinu attēlošana
