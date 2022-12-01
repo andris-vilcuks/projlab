@@ -66,13 +66,17 @@ if datne:
 
     # Aprēķini
     # Points(PTS) 5
-    # m_pts = df_majnieki.iloc[0,1]
-    m_pts = df_majnieki.at[0,'PTS']
+    m_pts = df_majnieki.iloc[0,1]
     st.text(m_pts)
     # Rebounds(REB) 2
-
+    m_reb = df_majnieki.iloc[0,2]
+    st.text(m_reb)
     # Assists(AST) 3
-    
+    m_ast = df_majnieki.iloc[0,3]
+    st.text(m_ast)
     # Steals(STL) 1
-
+    m_stl = df_majnieki.iloc[0,4]
+    st.text(m_stl)
     # +/- 4
+    m_pm = df_majnieki.iloc[0,5]
+    st.text(m_pm)
