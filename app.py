@@ -5,7 +5,7 @@ import numpy as np
 import altair as alt
 
 # Pārlūkprogrammas cilnes virsraksts un attēls
-st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basketball:")
+st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basketball:", layout="wide")
 
 # Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu) 
 st.sidebar.header("Parametri")
