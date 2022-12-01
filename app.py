@@ -62,7 +62,11 @@ if datne:
         st.header("Viesi:")
         st.dataframe(df_viesi)
 
-
+    a = 0
+    b = 0
+    c = 0
+    d = 0
+    e = 0
 
     # Vērtību atlase aprēķiniem
     # Points(PTS) 5
