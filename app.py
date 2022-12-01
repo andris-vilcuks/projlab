@@ -63,3 +63,14 @@ if datne:
 
 
 
+    # Aprēķini
+    # Points(PTS) 5
+    m_pts = df_majnieki[0:1]
+    st.text(m_pts)
+    # Rebounds(REB) 2
+
+    # Assists(AST) 3
+    
+    # Steals(STL) 1
+
+    # +/- 4
