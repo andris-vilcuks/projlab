@@ -11,7 +11,8 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 st.sidebar.header("Parametri")
 
 # Datnes izvēlne
-sagataves = st.sidebar.checkbox("Izmantot iepriekš sagatavotas tabulas", True)
+sagataves = True
+# sagataves = st.sidebar.checkbox("Izmantot iepriekš sagatavotas tabulas", True)
 
 # Ja ir ieķeksēts, tad izvēlas jau sagatavotu tabulu
 if sagataves == True:
@@ -22,6 +23,10 @@ if sagataves == False:
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
+
+    # Satura sadalījums kolonnās
+    col1, col2 = st.columns(2)
+
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase (atmet liekos datus)
@@ -31,8 +36,9 @@ if datne:
         df_komandas = df
 
     # Datu tabulas priekšskatījums
-    st.header("Tabulas priekšskatījums")
-    st.dataframe(df_komandas)
+    with col1:
+        st.header("Tabulas priekšskatījums")
+        st.dataframe(df_komandas)
 
 
 
@@ -44,19 +50,15 @@ if datne:
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
-    # Attēlojuma sadalījums kolonnās
-    col1, col2 = st.columns(2)
-
-    # Mājnieku atlases tabulas priekšskatījums
-    df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
-    with col1:
-        st.caption("Mājnieki:")
-        st.dataframe(df_majnieki)
-   
-    # Viesu atlases tabulas priekšskatījums
-    df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
     with col2:
-        st.caption("Viesi:")
+        # Mājnieku atlases tabulas priekšskatījums
+        df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
+        st.header("Mājnieki:")
+        st.dataframe(df_majnieki)
+    
+        # Viesu atlases tabulas priekšskatījums
+        df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
+        st.header("Viesi:")
         st.dataframe(df_viesi)
 
 
