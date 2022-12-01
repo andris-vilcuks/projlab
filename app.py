@@ -36,7 +36,7 @@ if datne:
     majnieku_izvelne = sorted(df_komandas.Team.unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
     # Atlases tabulas priekšskatījums
-    df_majnieki = df_komandas["Team"]
+    df_majnieki = df_komandas["Boston Celtics"]
     st.dataframe(df_majnieki)
 
     # Viesi
