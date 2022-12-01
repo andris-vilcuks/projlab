@@ -35,7 +35,6 @@ if datne:
     # Sānjosla - komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
-    st.text(majnieki)
     # Atlases tabulas priekšskatījums
     df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
     st.dataframe(df_majnieki)
@@ -44,3 +43,6 @@ if datne:
     # Sānjosla - Viesu komandas izvēle
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
+    # Atlases tabulas priekšskatījums
+    df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
+    st.dataframe(df_viesi)
