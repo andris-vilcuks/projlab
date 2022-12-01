@@ -64,19 +64,31 @@ if datne:
 
 
 
-    # Aprēķini
+    # Vērtību atlase aprēķiniem
     # Points(PTS) 5
     m_pts = df_majnieki.iloc[0,1]
-    st.text(m_pts)
+    v_pts = df_viesi.iloc[0,1]
     # Rebounds(REB) 2
     m_reb = df_majnieki.iloc[0,2]
-    st.text(m_reb)
+    v_reb = df_viesi.iloc[0,2]
     # Assists(AST) 3
     m_ast = df_majnieki.iloc[0,3]
-    st.text(m_ast)
+    v_ast = df_viesi.iloc[0,3]
     # Steals(STL) 1
     m_stl = df_majnieki.iloc[0,4]
-    st.text(m_stl)
+    v_stl = df_viesi.iloc[0,4]
     # +/- 4
     m_pm = df_majnieki.iloc[0,5]
-    st.text(m_pm)
+    v_pm = df_viesi.iloc[0,5]
+
+    rez1,rez2,rez3,rez4,rez5 = st.columns(5)
+    with rez1:
+        metric("PTS", m_pts, m_pts - v_pts)
+    with rez2:
+        metric("REB", m_reb, m_reb - v_reb)
+    with rez3:
+        metric("AST", m_ast, m_ast - v_ast)
+    with rez4:
+        metric("STL", m_stl, m_stl - v_stl)
+    with rez5:
+        metric("+/-", m_pm, m_pm - v_pm)
