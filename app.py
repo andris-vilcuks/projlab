@@ -68,27 +68,66 @@ if datne:
     # Points(PTS) 5
     m_pts = df_majnieki.iloc[0,1]
     v_pts = df_viesi.iloc[0,1]
+    pts = m_pts - v_pts
+    if pts >= 0:
+        a = 5
+    else:
+        a = -5
+
     # Rebounds(REB) 2
     m_reb = df_majnieki.iloc[0,2]
     v_reb = df_viesi.iloc[0,2]
+    reb = m_reb - v_reb
+    if reb >= 0:
+        b = 2
+    else:
+        a = -2
+
     # Assists(AST) 3
     m_ast = df_majnieki.iloc[0,3]
     v_ast = df_viesi.iloc[0,3]
+    ast = m_ast - v_ast
+    if ast >= 0:
+        a = 3
+    else:
+        a = -3
+
     # Steals(STL) 1
     m_stl = df_majnieki.iloc[0,4]
     v_stl = df_viesi.iloc[0,4]
+    stl = m_stl - v_stl
+    if stl >= 0:
+        a = 1
+    else:
+        a = -1
+
     # +/- 4
     m_pm = df_majnieki.iloc[0,5]
     v_pm = df_viesi.iloc[0,5]
+    pm = m_pm - v_pm
+    if pm >= 0:
+        a = 4
+    else:
+        a = -4
 
+
+    # Aprēķinu attēlošana
     rez1,rez2,rez3,rez4,rez5 = st.columns(5)
     with rez1:
-        st.metric("PTS", m_pts, m_pts - v_pts)
+        st.metric("PTS", m_pts, pts)
     with rez2:
-        st.metric("REB", m_reb, m_reb - v_reb)
+        st.metric("REB", m_reb, reb)
     with rez3:
-        st.metric("AST", m_ast, m_ast - v_ast)
+        st.metric("AST", m_ast, ast)
     with rez4:
-        st.metric("STL", m_stl, m_stl - v_stl)
+        st.metric("STL", m_stl, stl)
     with rez5:
-        st.metric("+/-", m_pm, m_pm - v_pm)
+        st.metric("+/-", m_pm, pm)
+
+    co1,co2 = st.columns(2)
+    with co1:
+        st.header(majnieki)
+        st.header(a+b+c+d+e)
+    with co2:
+        st.header(viesi)
+        st.header(-a-b-c-d-e)
