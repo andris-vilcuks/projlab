@@ -34,18 +34,26 @@ if datne:
     st.header("Tabulas priekšskatījums")
     st.dataframe(df_komandas)
 
+
+
     # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
 
-     # Sānjosla - Viesu komandas izvēle
+    # Sānjosla - Viesu komandas izvēle
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
+    # Attēlojuma sadalījums kolonnās
+    col1, col2 = st.columns(2)
+
     # Mājnieku atlases tabulas priekšskatījums
     df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
-    st.dataframe(df_majnieki)
+    col1.st.dataframe(df_majnieki)
    
     # Viesu atlases tabulas priekšskatījums
     df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
-    st.dataframe(df_viesi)
+    col2.st.dataframe(df_viesi)
+
+
+
