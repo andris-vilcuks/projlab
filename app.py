@@ -37,7 +37,7 @@ if datne:
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
     st.text(majnieki)
     # Atlases tabulas priekšskatījums
-    df_majnieki = df_komandas.loc[df_komandas[1] == "Boston Celtics"]
+    df_majnieki = df_komandas.loc[df_komandas["Team"] == "Boston Celtics"]
     st.dataframe(df_majnieki)
 
     # Viesi
