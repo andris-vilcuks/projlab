@@ -67,7 +67,7 @@ if datne:
     # Aprēķini
     # Points(PTS) 5
     # m_pts = df_majnieki.iloc[0,1]
-    m_pts = df_majnieki.loc[majnieki,'PTS']
+    m_pts = df_majnieki.at[1,'PTS']
     st.text(m_pts)
     # Rebounds(REB) 2
 
