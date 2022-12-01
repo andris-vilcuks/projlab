@@ -50,11 +50,13 @@ if datne:
     # Mājnieku atlases tabulas priekšskatījums
     df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
     with col1:
+        st.caption("Mājnieki:")
         st.dataframe(df_majnieki)
    
     # Viesu atlases tabulas priekšskatījums
     df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
     with col2:
+        st.caption("Viesi:")
         st.dataframe(df_viesi)
 
 
