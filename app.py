@@ -136,8 +136,7 @@ if datne:
         # Mājnieku rezultāts
         st.header(majnieki)
         st.header(a+b+c+d+e)
+    with co2:
         # Viesu rezultāts
         st.header(viesi)
         st.header(-a-b-c-d-e)
-    with co2:
-        
