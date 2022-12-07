@@ -55,61 +55,60 @@ if datne:
     with col2:
         st.bar_chart(df_komandas, x="Team", y=kolonna)
 
-    # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
-    a = 0
-    b = 0
-    c = 0
-    d = 0
-    e = 0
+        # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
+        a = 0
+        b = 0
+        c = 0
+        d = 0
+        e = 0
 
-    # Vērtību atlase aprēķiniem
-    # Points(PTS) 5
-    m_pts = df_majnieki.iloc[0,1]
-    v_pts = df_viesi.iloc[0,1]
-    pts = m_pts - v_pts
-    if pts >= 0:
-        a = 5
-    else:
-        a = -5
+        # Vērtību atlase aprēķiniem
+        # Points(PTS) 5
+        m_pts = df_majnieki.iloc[0,1]
+        v_pts = df_viesi.iloc[0,1]
+        pts = m_pts - v_pts
+        if pts >= 0:
+            a = 5
+        else:
+            a = -5
 
-    # Rebounds(REB) 2
-    m_reb = df_majnieki.iloc[0,2]
-    v_reb = df_viesi.iloc[0,2]
-    reb = m_reb - v_reb
-    if reb >= 0:
-        b = 2
-    else:
-        b = -2
+        # Rebounds(REB) 2
+        m_reb = df_majnieki.iloc[0,2]
+        v_reb = df_viesi.iloc[0,2]
+        reb = m_reb - v_reb
+        if reb >= 0:
+            b = 2
+        else:
+            b = -2
 
-    # Assists(AST) 3
-    m_ast = df_majnieki.iloc[0,3]
-    v_ast = df_viesi.iloc[0,3]
-    ast = m_ast - v_ast
-    if ast >= 0:
-        c = 3
-    else:
-        c = -3
+        # Assists(AST) 3
+        m_ast = df_majnieki.iloc[0,3]
+        v_ast = df_viesi.iloc[0,3]
+        ast = m_ast - v_ast
+        if ast >= 0:
+            c = 3
+        else:
+            c = -3
 
-    # Steals(STL) 1
-    m_stl = df_majnieki.iloc[0,4]
-    v_stl = df_viesi.iloc[0,4]
-    stl = m_stl - v_stl
-    if stl >= 0:
-        d = 1
-    else:
-        d = -1
+        # Steals(STL) 1
+        m_stl = df_majnieki.iloc[0,4]
+        v_stl = df_viesi.iloc[0,4]
+        stl = m_stl - v_stl
+        if stl >= 0:
+            d = 1
+        else:
+            d = -1
 
-    # +/- 4
-    m_pm = df_majnieki.iloc[0,5]
-    v_pm = df_viesi.iloc[0,5]
-    pm = m_pm - v_pm
-    if pm >= 0:
-        e = 4
-    else:
-        e = -4  
+        # +/- 4
+        m_pm = df_majnieki.iloc[0,5]
+        v_pm = df_viesi.iloc[0,5]
+        pm = m_pm - v_pm
+        if pm >= 0:
+            e = 4
+        else:
+            e = -4  
 
-    # Attēlo galā iegūto rezultātu
-    with col2:
+        # Attēlo galā iegūto rezultātu
         co1,co2 = st.columns(2)
         with co1:
             # Mājnieku rezultāts
