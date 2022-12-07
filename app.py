@@ -115,10 +115,10 @@ if datne:
 
     with rez1:
         # Mājnieku rezultāts
-        st.header("Mājnieki: ", majnieki)
+        st.header("Mājnieki: " + majnieki)
         st.header(a+b+c+d+e)
         # Viesu rezultāts
-        st.header("Viesi: ", viesi)
+        st.header("Viesi: " + viesi)
         st.header(-a-b-c-d-e)
 
     # Starpības
