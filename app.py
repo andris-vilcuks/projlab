@@ -115,13 +115,10 @@ if datne:
 
     with rez0:
         # Mājnieku rezultāts
-        st.markdown("Mājnieki: " + majnieki)
-        st.markdown(a+b+c+d+e)
+        st.metrics("Mājnieki: " + majnieki, a+b+c+d+e)
     with rez1:
         # Viesu rezultāts
-        st.markdown("Viesi: " + viesi)
-        st.markdown(-a-b-c-d-e)
-
+        st.metrics("Viesi: " + viesi, -a-b-c-d-e)
     # Starpības
     with rez2:
         st.metric("PTS", m_pts, pts)
