@@ -75,7 +75,7 @@ if datne:
     if reb >= 0:
         b = 2
     else:
-        a = -2
+        b = -2
 
     # Assists(AST) 3
     m_ast = df_majnieki.iloc[0,3]
