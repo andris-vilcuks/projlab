@@ -11,16 +11,7 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 # Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu) 
 st.sidebar.header("Parametri")
 
-# Datnes izvēlne
-sagataves = True
-# sagataves = st.sidebar.checkbox("Izmantot iepriekš sagatavotas tabulas", True)
-
-# Ja ir ieķeksēts, tad izvēlas jau sagatavotu tabulu
-if sagataves == True:
-    datne = "NBA2022-23.csv"
-# Ja izņem ķeksi, tad lietotājam nepieciešams augšupielādēt .csv datni patstāvīgi
-if sagataves == False:
-    datne = st.file_uploader("Augšupielādēt CSV datni", type=".csv")
+datne = "NBA2022-23.csv"
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
@@ -31,10 +22,9 @@ if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase (atmet liekos datus)
-    if sagataves == True:
-        df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
-    else:
-        df_komandas = df
+
+    #df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
+    df_komandas = df[['PTS','REB','AST','STL','+/-']]
 
     # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
