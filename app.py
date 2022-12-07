@@ -38,15 +38,15 @@ if datne:
         st.header("Tabulas priekšskatījums")
         st.dataframe(df_komandas)
 
-    # Mājnieku atlases tabulas priekšskatījums
-    df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
-    st.sidebar.header("Mājnieki:")
-    st.sidebar.dataframe(df_majnieki)
-
-    # Viesu atlases tabulas priekšskatījums
-    df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
-    st.sidebar.header("Viesi:")
-    st.sidebar.dataframe(df_viesi)
+        # Mājnieku atlases tabulas priekšskatījums
+        df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
+        st.header("Mājnieki:")
+        st.dataframe(df_majnieki)
+    
+        # Viesu atlases tabulas priekšskatījums
+        df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
+        st.header("Viesi:")
+        st.dataframe(df_viesi)
 
     #with col2:
         #st.area_chart(df_komandas)
