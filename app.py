@@ -111,7 +111,7 @@ if datne:
 
 
     # Attēlo galā iegūto rezultātu
-    rez0, rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(6)
+    rez0, rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(7)
 
     with rez0:
         # Mājnieku rezultāts
