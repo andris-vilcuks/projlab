@@ -50,7 +50,8 @@ if datne:
 
     # Sānjosla - Kolonnas izvēle
     st.header("Diagramma")
-    kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandas.drop(["Team"]).columns)
+    df_komandu_dati = df_komandas.drop(["Team"])
+    kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandu_dati.columns)
 
     with col2:
         st.bar_chart(df_komandas, x="Team", y=kolonna)
