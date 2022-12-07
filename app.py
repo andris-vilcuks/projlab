@@ -106,29 +106,21 @@ if datne:
     if pm >= 0:
         e = 4
     else:
-        e = -4
-
-
-    # Aprēķinu attēlošana
-    rez1,rez2,rez3,rez4,rez5 = st.columns(5)
-    with rez1:
-        st.metric("PTS", m_pts, pts)
-    with rez2:
-        st.metric("REB", m_reb, reb)
-    with rez3:
-        st.metric("AST", m_ast, ast)
-    with rez4:
-        st.metric("STL", m_stl, stl)
-    with rez5:
-        st.metric("+/-", m_pm, pm)
+        e = -4  
 
     # Attēlo galā iegūto rezultātu
-    co1,co2 = st.columns(2)
-    with co1:
-        # Mājnieku rezultāts
-        st.header(majnieki)
-        st.header(a+b+c+d+e)
-    with co2:
-        # Viesu rezultāts
-        st.header(viesi)
-        st.header(-a-b-c-d-e)
+    with col2:
+        co1,co2 = st.columns(2)
+        with co1:
+            # Mājnieku rezultāts
+            st.header(majnieki)
+            st.header(a+b+c+d+e)
+            # Viesu rezultāts
+            st.header(viesi)
+            st.header(-a-b-c-d-e)
+        with co2:
+            st.metric("PTS", m_pts, pts)
+            st.metric("REB", m_reb, reb)
+            st.metric("AST", m_ast, ast)
+            st.metric("STL", m_stl, stl)
+            st.metric("+/-", m_pm, pm)
