@@ -16,6 +16,9 @@ datne = "NBA2022-23.csv"
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
 
+    # Satura sadalījums kolonnās
+    col1, col2 = st.columns(2)
+
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase
@@ -30,19 +33,21 @@ if datne:
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
     # Datu tabulu priekšskatījums
-    # Kopējo datu tabulas priekšskatījums
-    st.header("Tabulas priekšskatījums")
-    st.dataframe(df_komandas)
+    with col1:
+        # Kopējo datu tabulas priekšskatījums
+        st.header("Tabulas priekšskatījums")
+        st.dataframe(df_komandas)
 
-    # Mājnieku atlases tabulas priekšskatījums
-    df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
-    st.header("Mājnieki:")
-    st.dataframe(df_majnieki)
-
-    # Viesu atlases tabulas priekšskatījums
-    df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
-    st.header("Viesi:")
-    st.dataframe(df_viesi)
+    with col2:
+        # Mājnieku atlases tabulas priekšskatījums
+        df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
+        st.header("Mājnieki:")
+        st.dataframe(df_majnieki)
+    
+        # Viesu atlases tabulas priekšskatījums
+        df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
+        st.header("Viesi:")
+        st.dataframe(df_viesi)
 
     # Sānjosla - Kolonnas izvēle
     df_komandu_dati = df_komandas.drop(axis=1, columns='Team')
