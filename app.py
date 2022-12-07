@@ -115,12 +115,12 @@ if datne:
 
     with rez0:
         # Mājnieku rezultāts
-        st.text("Mājnieki: " + majnieki)
-        st.text(a+b+c+d+e)
+        st.caption("Mājnieki: " + majnieki)
+        st.markdown(a+b+c+d+e)
     with rez1:
         # Viesu rezultāts
-        st.text("Viesi: " + viesi)
-        st.text(-a-b-c-d-e)
+        st.caption("Viesi: " + viesi)
+        st.markdown(-a-b-c-d-e)
 
     # Starpības
     with rez2:
