@@ -108,16 +108,27 @@ if datne:
     else:
         e = -4  
 
+
+
     # Attēlo galā iegūto rezultātu
-    # Mājnieku rezultāts
-    st.header(majnieki)
-    st.header(a+b+c+d+e)
-    # Viesu rezultāts
-    st.header(viesi)
-    st.header(-a-b-c-d-e)
+    rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(6)
+
+    with rez1:
+        # Mājnieku rezultāts
+        st.header("Mājnieki: ", majnieki)
+        st.header(a+b+c+d+e)
+        # Viesu rezultāts
+        st.header("Viesi: ", viesi)
+        st.header(-a-b-c-d-e)
+
     # Starpības
-    st.metric("PTS", m_pts, pts)
-    st.metric("REB", m_reb, reb)
-    st.metric("AST", m_ast, ast)
-    st.metric("STL", m_stl, stl)
-    st.metric("+/-", m_pm, pm)
+    with rez2:
+        st.metric("PTS", m_pts, pts)
+    with rez3:
+        st.metric("REB", m_reb, reb)
+    with rez4:
+        st.metric("AST", m_ast, ast)
+    with rez5:
+        st.metric("STL", m_stl, stl)
+    with rez6:
+        st.metric("+/-", m_pm, pm)
