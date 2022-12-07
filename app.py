@@ -48,8 +48,12 @@ if datne:
         st.header("Viesi:")
         st.dataframe(df_viesi)
 
+    # Sānjosla - Kolonnas izvēle
+    st.header("Diagramma")
+    kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandas.unique())
+
     with col2:
-        st.bar_chart(df_komandas, x="Team")
+        st.bar_chart(df_komandas, x="Team", y=)
 
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
