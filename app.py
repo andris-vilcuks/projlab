@@ -111,12 +111,13 @@ if datne:
 
 
     # Attēlo galā iegūto rezultātu
-    rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(6)
+    rez0, rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(6)
 
-    with rez1:
+    with rez0:
         # Mājnieku rezultāts
         st.header("Mājnieki: " + majnieki)
         st.header(a+b+c+d+e)
+    with rez1:
         # Viesu rezultāts
         st.header("Viesi: " + viesi)
         st.header(-a-b-c-d-e)
