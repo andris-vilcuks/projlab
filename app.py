@@ -24,6 +24,10 @@ if datne:
     # Nepieciešamo datu atlase
     df_komandas = df[['Team','PTS','REB','AST','STL','+/-']]
 
+    # Sānjosla - Kolonnas izvēle
+    df_komandu_dati = df_komandas.drop(axis=1, columns='Team')
+    kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandu_dati.columns)
+
     # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
@@ -48,10 +52,6 @@ if datne:
         df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
         st.header("Viesi: " + viesi)
         st.dataframe(df_viesi)
-
-    # Sānjosla - Kolonnas izvēle
-    df_komandu_dati = df_komandas.drop(axis=1, columns='Team')
-    kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandu_dati.columns)
 
     st.bar_chart(df_komandas, x="Team", y=kolonna)
 
