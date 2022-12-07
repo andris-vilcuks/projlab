@@ -109,17 +109,15 @@ if datne:
             e = -4  
 
         # Attēlo galā iegūto rezultātu
-        co1,co2 = st.columns(2)
-        with co1:
-            # Mājnieku rezultāts
-            st.header(majnieki)
-            st.header(a+b+c+d+e)
-            # Viesu rezultāts
-            st.header(viesi)
-            st.header(-a-b-c-d-e)
-        with co2:
-            st.metric("PTS", m_pts, pts)
-            st.metric("REB", m_reb, reb)
-            st.metric("AST", m_ast, ast)
-            st.metric("STL", m_stl, stl)
-            st.metric("+/-", m_pm, pm)
+        # Mājnieku rezultāts
+        st.header(majnieki)
+        st.header(a+b+c+d+e)
+        # Viesu rezultāts
+        st.header(viesi)
+        st.header(-a-b-c-d-e)
+        # Starpības
+        st.metric("PTS", m_pts, pts)
+        st.metric("REB", m_reb, reb)
+        st.metric("AST", m_ast, ast)
+        st.metric("STL", m_stl, stl)
+        st.metric("+/-", m_pm, pm)
