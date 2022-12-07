@@ -24,7 +24,7 @@ if datne:
     # Nepieciešamo datu atlase (atmet liekos datus)
 
     #df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
-    df_komandas = df[['PTS','REB','AST','STL','+/-']]
+    df_komandas = df[['Team','PTS','REB','AST','STL','+/-']]
 
     # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
