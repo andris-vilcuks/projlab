@@ -36,13 +36,6 @@ if datne:
     else:
         df_komandas = df
 
-    # Datu tabulas priekšskatījums
-    with col1:
-        st.header("Tabulas priekšskatījums")
-        st.dataframe(df_komandas)
-
-
-
     # Sānjosla - Mājnieku komandas izvēle
     majnieku_izvelne = sorted(df_komandas['Team'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
@@ -51,7 +44,12 @@ if datne:
     viesu_izvelne = sorted(df_komandas.Team.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
-    with col2:
+    # Datu tabulu priekšskatījums
+    with col1:
+        # Kopējo datu tabulas priekšskatījums
+        st.header("Tabulas priekšskatījums")
+        st.dataframe(df_komandas)
+
         # Mājnieku atlases tabulas priekšskatījums
         df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
         st.header("Mājnieki:")
@@ -62,6 +60,10 @@ if datne:
         st.header("Viesi:")
         st.dataframe(df_viesi)
 
+    with col2:
+        st.area_chart(df_komandas)
+
+    # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
     b = 0
     c = 0
@@ -128,10 +130,14 @@ if datne:
     with rez5:
         st.metric("+/-", m_pm, pm)
 
+    # Attēlo galā iegūto rezultātu
     co1,co2 = st.columns(2)
     with co1:
+        # Mājnieku rezultāts
         st.header(majnieki)
         st.header(a+b+c+d+e)
-    with co2:
+        # Viesu rezultāts
         st.header(viesi)
         st.header(-a-b-c-d-e)
+    with co2:
+        
