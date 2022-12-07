@@ -49,7 +49,7 @@ if datne:
         st.dataframe(df_viesi)
 
     with col2:
-        st.line_chart(df_komandas, y="Team")
+        st.line_chart(df_komandas, x=['PTS','REB','AST','STL','+/-'], y="Team")
 
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
