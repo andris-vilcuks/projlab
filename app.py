@@ -21,9 +21,7 @@ if datne:
 
     # Datnes nolasīšana
     df = pd.read_csv(datne)
-    # Nepieciešamo datu atlase (atmet liekos datus)
-
-    #df_komandas = df.drop(["GP","W","L","WIN%","Min","FGM","FGA","FG%","3PM","3PA","3P%","FTM","FTA","FT%","OREB","DREB","TOV","BLK","BLKA","PF","PFD"], axis=1)
+    # Nepieciešamo datu atlase
     df_komandas = df[['Team','PTS','REB','AST','STL','+/-']]
 
     # Sānjosla - Mājnieku komandas izvēle
@@ -50,8 +48,8 @@ if datne:
         st.header("Viesi:")
         st.dataframe(df_viesi)
 
-    with col2:
-        st.area_chart(df_komandas)
+    #with col2:
+        #st.area_chart(df_komandas)
 
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
