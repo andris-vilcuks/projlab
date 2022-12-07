@@ -53,7 +53,7 @@ if datne:
     kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandas.unique())
 
     with col2:
-        st.bar_chart(df_komandas, x="Team", y=)
+        st.bar_chart(df_komandas, x="Team", y=kolonna)
 
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
