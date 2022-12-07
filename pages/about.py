@@ -11,7 +11,7 @@ st.header('Dati')
 st.markdown('Basketbola komandu dati tiek iegūti no vietnes https://www.nba.com/stats/teams/traditional , kurā ir pieejami gan pašreizējās, gan iepriekšējo sezonu komandu dati to apstrādei.')
 
 st.header('Formula')
-st.markdown('No iegūtajiem datiem, tiek atlasīti tikai svarīgākie un noteikts to nozīmīgums:')
+st.markdown('No iegūtajiem datiem, tiek atlasīti tikai svarīgākie un noteikts to nozīmīgums ar skaitlisku vērtību:')
 st.markdown('- Punkti jeb *points* (PTS) - 5')
 st.markdown('- Plus/Mīnus (+/-) - 4')
 st.markdown('- Piespēles jeb *assists* (AST) - 3')
