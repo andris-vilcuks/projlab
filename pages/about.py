@@ -26,6 +26,6 @@ st.markdown('Vārds Uzvārds 201RDB004')
 st.markdown('Vārds Uzvārds 201RDB005')
 st.markdown('Andris Vilčuks 201RDB021')
 
-st.header('Informācijas avoti:')
+st.header('Informācijas avoti vietnes izveidei:')
 st.markdown('https://docs.streamlit.io/library/get-started')
 st.markdown('https://www.nba.com/stats/teams/traditional')
