@@ -10,7 +10,7 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 st.sidebar.header("Parametri")
 
 gads = st.sidebar.selectbox('Gads:', list(reversed(range(2000,2024))))
-datne = "NBA"+str(gads-1)+"-"+str(year)+".csv"
+datne = "NBA"+str(gads-1)+"-"+str(gads)+".csv"
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
