@@ -11,7 +11,7 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 # Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu) 
 st.sidebar.header("Parametri")
 
-datne = "NBA2022-23.csv"
+datne = "NBA2021-22.csv"
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
