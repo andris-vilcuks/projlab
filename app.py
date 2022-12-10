@@ -22,18 +22,18 @@ if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase
-    df_komandas = df[['Team','PTS','REB','AST','STL','+/-']]
+    df_komandas = df[['TEAM','PTS','REB','AST','STL','+/-']]
 
     # Sānjosla - Kolonnas izvēle
-    df_komandu_dati = df_komandas.drop(axis=1, columns='Team')
+    df_komandu_dati = df_komandas.drop(axis=1, columns='TEAM')
     kolonna = st.sidebar.selectbox('Kolonnas izvēle:', df_komandu_dati.columns)
 
     # Sānjosla - Mājnieku komandas izvēle
-    majnieku_izvelne = sorted(df_komandas['Team'].unique())
+    majnieku_izvelne = sorted(df_komandas['TEAM'].unique())
     majnieki = st.sidebar.selectbox('Mājnieki', majnieku_izvelne)
 
     # Sānjosla - Viesu komandas izvēle
-    viesu_izvelne = sorted(df_komandas.Team.unique())
+    viesu_izvelne = sorted(df_komandas.TEAM.unique())
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
     # Datu tabulu priekšskatījums
@@ -44,16 +44,16 @@ if datne:
 
     with col2:
         # Mājnieku atlases tabulas priekšskatījums
-        df_majnieki = df_komandas.loc[df_komandas["Team"] == majnieki]
+        df_majnieki = df_komandas.loc[df_komandas["TEAM"] == majnieki]
         st.header("Mājnieki: " + majnieki)
         st.dataframe(df_majnieki)
     
         # Viesu atlases tabulas priekšskatījums
-        df_viesi = df_komandas.loc[df_komandas["Team"] == viesi]
+        df_viesi = df_komandas.loc[df_komandas["TEAM"] == viesi]
         st.header("Viesi: " + viesi)
         st.dataframe(df_viesi)
 
-    st.bar_chart(df_komandas, x="Team", y=kolonna)
+    st.bar_chart(df_komandas, x="TEAM", y=kolonna)
 
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
