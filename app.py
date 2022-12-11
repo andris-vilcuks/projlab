@@ -36,9 +36,11 @@ if datne:
     viesi = st.sidebar.selectbox('Viesi', viesu_izvelne)
 
     # Datu tabulu priekšskatījums
+    st.header("Tabulas priekšskatījums:")
+    st.dataframe(df)
+
     with col1:
-        # Kopējo datu tabulas priekšskatījums
-        st.header("Tabulas priekšskatījums")
+        # Kopējo datu (pēc atlases) tabulas priekšskatījums
         st.dataframe(df_komandas)
 
     with col2:
