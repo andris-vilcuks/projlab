@@ -15,9 +15,6 @@ datne = "NBA"+str(gads-1)+"-"+str(gads)+".csv"
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
 
-    # Satura sadalījums kolonnās
-    col1, col2 = st.columns(2)
-
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase
@@ -38,6 +35,9 @@ if datne:
     # Datu tabulu priekšskatījums
     st.header("Tabulas priekšskatījums:")
     st.dataframe(df)
+
+    # Satura sadalījums kolonnās
+    col1, col2 = st.columns(2)
 
     with col1:
         # Kopējo datu (pēc atlases) tabulas priekšskatījums
