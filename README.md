@@ -56,7 +56,6 @@ Tehnoloģijas steks ir redzams 4.tabulā.
 | ------ | 
 | Satvars: Streamlit | 
 | Programmēšanas valoda: Python | 
-| Datu bāze:  MySQL | 
 | Tīmekļa serveris: Apache | 
 | OS: Ubuntu | 
 | Serveris: Fiziskā iekārta vai VM | 
