@@ -9,8 +9,16 @@ st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basket
 # Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu) 
 st.sidebar.header("Parametri")
 
-gads = st.sidebar.selectbox('Gads:', list(reversed(range(1996,2023))))
-datne = "NBA"+str(gads)+"-"+str(gads+1)+".csv"
+# Datnes izvēlne
+izvelne = st.sidebar.checkbox("Izmantot savu .csv datni")
+
+if izvelne == True:
+    # Ja ķeksis ir ielikts, lietotājs augšupielādē savus datus
+    datne = st.file_uploader("Augšupielādēt CSV datni", type=".csv")
+else:
+    # Ja ķeksis nav ielikts, izvēlas sagatavotos datus
+    gads = st.sidebar.selectbox('Gads:', list(reversed(range(1996,2023))))
+    datne = "NBA"+str(gads)+"-"+str(gads+1)+".csv"
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
