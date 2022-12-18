@@ -17,7 +17,7 @@ st.markdown('- AST')
 st.markdown('- REB')
 st.markdown('- STL')
 
-st.header('Formula')
+st.header('Aprēķinu formula')
 st.markdown('No iegūtajiem datiem, tiek atlasīti tikai svarīgākie un noteikts to nozīmīgums ar skaitlisku vērtību:')
 st.markdown('- Punkti jeb *points* (PTS) - 5')
 st.markdown('- Plus/Mīnus (+/-) - 4')
