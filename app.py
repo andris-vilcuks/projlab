@@ -67,9 +67,6 @@ if datne:
     # Mainīgo definēšana, noklusējuma vērtību uzstādīšana
     a = 0
     b = 0
-    c = 0
-    d = 0
-    e = 0
 
     # Vērtību atlase aprēķiniem
     # Points(PTS) 5
@@ -77,45 +74,45 @@ if datne:
     v_pts = df_viesi.iloc[0,1]
     pts = m_pts - v_pts
     if pts >= 0:
-        a = 5
+        a =+ 5
     else:
-        a = -5
+        b =+ 5
 
     # Rebounds(REB) 2
     m_reb = df_majnieki.iloc[0,2]
     v_reb = df_viesi.iloc[0,2]
     reb = m_reb - v_reb
     if reb >= 0:
-        b = 2
+        a =+ 2
     else:
-        b = -2
+        b =+ 2
 
     # Assists(AST) 3
     m_ast = df_majnieki.iloc[0,3]
     v_ast = df_viesi.iloc[0,3]
     ast = m_ast - v_ast
     if ast >= 0:
-        c = 3
+        a =+ 3
     else:
-        c = -3
+        b =+ 3
 
     # Steals(STL) 1
     m_stl = df_majnieki.iloc[0,4]
     v_stl = df_viesi.iloc[0,4]
     stl = m_stl - v_stl
     if stl >= 0:
-        d = 1
+        a =+ 1
     else:
-        d = -1
+        b =+ 1
 
     # +/- 4
     m_pm = df_majnieki.iloc[0,5]
     v_pm = df_viesi.iloc[0,5]
     pm = m_pm - v_pm
     if pm >= 0:
-        e = 4
+        a =+ 4
     else:
-        e = -4  
+        b =+ 4
 
 
 
@@ -124,10 +121,10 @@ if datne:
 
     with rez0:
         # Mājnieku rezultāts
-        st.metric("Mājnieki: " + majnieki, a+b+c+d+e)
+        st.metric("Mājnieki: " + majnieki, a)
     with rez1:
         # Viesu rezultāts
-        st.metric("Viesi: " + viesi, -a-b-c-d-e)
+        st.metric("Viesi: " + viesi, b)
     # Starpības
     with rez2:
         st.metric("PTS", m_pts, pts)
