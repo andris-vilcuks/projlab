@@ -74,45 +74,45 @@ if datne:
     v_pts = df_viesi.iloc[0,1]
     pts = m_pts - v_pts
     if pts >= 0:
-        a =+ 5
+        a = a + 5
     else:
-        b =+ 5
+        b = b + 5
 
     # Rebounds(REB) 2
     m_reb = df_majnieki.iloc[0,2]
     v_reb = df_viesi.iloc[0,2]
     reb = m_reb - v_reb
     if reb >= 0:
-        a =+ 2
+        a = a + 2
     else:
-        b =+ 2
+        b = b + 2
 
     # Assists(AST) 3
     m_ast = df_majnieki.iloc[0,3]
     v_ast = df_viesi.iloc[0,3]
     ast = m_ast - v_ast
     if ast >= 0:
-        a =+ 3
+        a = a + 3
     else:
-        b =+ 3
+        b = b + 3
 
     # Steals(STL) 1
     m_stl = df_majnieki.iloc[0,4]
     v_stl = df_viesi.iloc[0,4]
     stl = m_stl - v_stl
     if stl >= 0:
-        a =+ 1
+        a = a + 1
     else:
-        b =+ 1
+        b = b + 1
 
     # +/- 4
     m_pm = df_majnieki.iloc[0,5]
     v_pm = df_viesi.iloc[0,5]
     pm = m_pm - v_pm
     if pm >= 0:
-        a =+ 4
+        a = a + 4
     else:
-        b =+ 4
+        b = b + 4
 
 
 
