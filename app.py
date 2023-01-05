@@ -1,12 +1,12 @@
 # Nepieciešamo moduļu pievienošana
 import streamlit as st
 import pandas as pd
-import numpy as np
+import psycopg2
 
 # Pārlūkprogrammas cilnes virsraksts un attēls
 st.set_page_config(page_title="Projektēšanas laboratorija", page_icon=":basketball:", layout="wide")
 
-# Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu) 
+# Sānjoslas virsraksts (nepieciešams, lai jau sākumā attēlotu sānjoslu)
 st.sidebar.header("Parametri")
 
 # Datnes izvēlne
@@ -17,8 +17,8 @@ if izvelne == True:
     datne = st.file_uploader("Augšupielādēt CSV datni", type=".csv")
 else:
     # Ja ķeksis nav ielikts, izvēlas sagatavotos datus
-    gads = st.sidebar.selectbox('Gads:', list(reversed(range(1996,2023))))
-    datne = "NBA"+str(gads)+"-"+str(gads+1)+".csv"
+    gads = st.sidebar.selectbox('Gads:', list(reversed(range(1996, 2023))))
+    datne = "NBA" + str(gads) + "-" + str(gads + 1) + ".csv"
 
 # Brīdī, kad ir zināms, kura datne tiks lietota, notiek sekojošās darbības:
 if datne:
@@ -26,7 +26,7 @@ if datne:
     # Datnes nolasīšana
     df = pd.read_csv(datne)
     # Nepieciešamo datu atlase
-    df_komandas = df[['TEAM','PTS','REB','AST','STL','+/-']]
+    df_komandas = df[['TEAM', 'PTS', 'REB', 'AST', 'STL', '+/-']]
 
     # Sānjosla - Kolonnas izvēle
     df_komandu_dati = df_komandas.drop(axis=1, columns='TEAM')
@@ -56,7 +56,7 @@ if datne:
         df_majnieki = df_komandas.loc[df_komandas["TEAM"] == majnieki]
         st.header("Mājnieki: " + majnieki)
         st.dataframe(df_majnieki)
-    
+
         # Viesu atlases tabulas priekšskatījums
         df_viesi = df_komandas.loc[df_komandas["TEAM"] == viesi]
         st.header("Viesi: " + viesi)
@@ -70,8 +70,8 @@ if datne:
 
     # Vērtību atlase aprēķiniem
     # Points(PTS) 5
-    m_pts = df_majnieki.iloc[0,1]
-    v_pts = df_viesi.iloc[0,1]
+    m_pts = df_majnieki.iloc[0, 1]
+    v_pts = df_viesi.iloc[0, 1]
     pts = m_pts - v_pts
     if pts >= 0:
         a = a + 5
@@ -79,8 +79,8 @@ if datne:
         b = b + 5
 
     # Rebounds(REB) 2
-    m_reb = df_majnieki.iloc[0,2]
-    v_reb = df_viesi.iloc[0,2]
+    m_reb = df_majnieki.iloc[0, 2]
+    v_reb = df_viesi.iloc[0, 2]
     reb = m_reb - v_reb
     if reb >= 0:
         a = a + 2
@@ -88,8 +88,8 @@ if datne:
         b = b + 2
 
     # Assists(AST) 3
-    m_ast = df_majnieki.iloc[0,3]
-    v_ast = df_viesi.iloc[0,3]
+    m_ast = df_majnieki.iloc[0, 3]
+    v_ast = df_viesi.iloc[0, 3]
     ast = m_ast - v_ast
     if ast >= 0:
         a = a + 3
@@ -97,8 +97,8 @@ if datne:
         b = b + 3
 
     # Steals(STL) 1
-    m_stl = df_majnieki.iloc[0,4]
-    v_stl = df_viesi.iloc[0,4]
+    m_stl = df_majnieki.iloc[0, 4]
+    v_stl = df_viesi.iloc[0, 4]
     stl = m_stl - v_stl
     if stl >= 0:
         a = a + 1
@@ -106,15 +106,13 @@ if datne:
         b = b + 1
 
     # +/- 4
-    m_pm = df_majnieki.iloc[0,5]
-    v_pm = df_viesi.iloc[0,5]
+    m_pm = df_majnieki.iloc[0, 5]
+    v_pm = df_viesi.iloc[0, 5]
     pm = m_pm - v_pm
     if pm >= 0:
         a = a + 4
     else:
         b = b + 4
-
-
 
     # Attēlo galā iegūto rezultātu
     rez0, rez1, rez2, rez3, rez4, rez5, rez6, = st.columns(7)
@@ -136,3 +134,25 @@ if datne:
         st.metric("STL", m_stl, stl)
     with rez6:
         st.metric("+/-", m_pm, pm)
+
+# Izveido datu bāzes savienojumu
+conn = psycopg2.connect(user='postgres', password='qwerty12321051', host='localhost', database='postgres')
+
+# Izveido cursor objektu
+cursor = conn.cursor()
+
+#  SQL vaicājum datu ievadīšanai datu bāze
+query = (
+        "INSERT INTO rezultati (majnieku_rez, viesu_rez) "
+        "VALUES (%s, %s)"
+)
+
+# Izpilda SQL vaicājums un ievada izvelēti dati tabulā
+cursor.execute(query, (a, b))
+
+# Sinhronizē ar datubāzi
+conn.commit()
+
+# Aizvēr piekļūvi datu bāzei
+cursor.close()
+conn.close()
