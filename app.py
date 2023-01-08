@@ -136,7 +136,7 @@ if datne:
         st.metric("+/-", m_pm, pm)
 
 # Izveido datu bāzes savienojumu
-conn = psycopg2.connect(user='postgres', password='qwerty12321051', host='localhost', database='postgres')
+conn = psycopg2.connect(user='ShadowVlad', password='qwerty12321051', host='basketbols.csa31i8ih5ro.eu-north-1.rds.amazonaws.com', database='Basketbols')
 
 # Izveido cursor objektu
 cursor = conn.cursor()
