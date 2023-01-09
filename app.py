@@ -140,33 +140,3 @@ if datne:
         st.metric("STL", m_stl, stl)
     with rez6:
         st.metric("+/-", m_pm, pm)
-
-def save_data():
-  # Izveido datu bāzes savienojumu
-  conn = psycopg2.connect(user='postgres', password='qwerty12321051', host='localhost', database='postgres')
-
-  # Izveido cursor object
-  cursor = conn.cursor()
-
-  # SQL vaicājum datu ievadīšanai datu bāze
-  query = (
-           "INSERT INTO rezultati (majnieku_komanda, majnieku_rez, viesu_komanda, viesu_rez, laiks)"
-           "VALUES (%s, %s, %s, %s, %s)"
-  )
-
-  # Izpilda SQL vaicājums un ievada izvelēti dati tabulā
-  cursor.execute(query, (majnieki, a, viesi, b, datetime.now()))
-
-  # Sinhronizē ar datubāzi
-  conn.commit()
-
-  # Aizvēr piekļūvi datu bāzei
-  cursor.close()
-  conn.close()
-
-# Create the button
-save_button = st.button("Save Data")
-
-# Add the callback function to the button
-if save_button:
-  save_data()
