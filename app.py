@@ -1,4 +1,10 @@
 # Nepieciešamo moduļu pievienošana
+import base64
+from datetime import datetime
+import io
+import csv
+
+import data as data
 import streamlit as st
 import pandas as pd
 import psycopg2
@@ -131,24 +137,7 @@ if datne:
     with rez4:
         st.metric("AST", m_ast, ast)
     with rez5:
-        st.metric("STL", m_stl, stl)
-    with rez6:
-        st.metric("+/-", m_pm, pm)
-
-# Izveido datu bāzes savienojumu
-conn = psycopg2.connect(user='ShadowVlad', password='qwerty12321051', host='basketbols.csa31i8ih5ro.eu-north-1.rds.amazonaws.com', database='Basketbols')
-
-# Izveido cursor objektu
-cursor = conn.cursor()
-
-#  SQL vaicājum datu ievadīšanai datu bāze
-query = (
-        "INSERT INTO rezultati (majnieku_rez, viesu_rez) "
-        "VALUES (%s, %s)"
-)
-
-# Izpilda SQL vaicājums un ievada izvelēti dati tabulā
-cursor.execute(query, (a, b))
+        st.metric("STe(query, (majnieki, a, viesi, b, datetime.now()))
 
 # Sinhronizē ar datubāzi
 conn.commit()
@@ -156,3 +145,31 @@ conn.commit()
 # Aizvēr piekļūvi datu bāzei
 cursor.close()
 conn.close()
+
+# Create the button
+save_button = st.button("Save Data")
+
+# Add the callback function to the button
+if save_button:
+    save_data()
+
+
+L", m_stl, stl)
+    with rez6:
+        st.metric("+/-", m_pm, pm)
+
+def save_data():
+  # Izveido datu bāzes savienojumu
+  conn = psycopg2.connect(user='postgres', password='qwerty12321051', host='localhost', database='postgres')
+
+  # Izveido cursor object
+  cursor = conn.cursor()
+
+  # SQL vaicājum datu ievadīšanai datu bāze
+  query = (
+           "INSERT INTO rezultati (majnieku_komanda, majnieku_rez, viesu_komanda, viesu_rez, laiks)"
+           "VALUES (%s, %s, %s, %s, %s)"
+  )
+
+  # Izpilda SQL vaicājums un ievada izvelēti dati tabulā
+  cursor.execut
