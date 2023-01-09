@@ -3,8 +3,6 @@ import base64
 from datetime import datetime
 import io
 import csv
-
-import data as data
 import streamlit as st
 import pandas as pd
 import psycopg2
