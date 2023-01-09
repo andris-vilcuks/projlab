@@ -137,24 +137,7 @@ if datne:
     with rez4:
         st.metric("AST", m_ast, ast)
     with rez5:
-        st.metric("STe(query, (majnieki, a, viesi, b, datetime.now()))
-
-# Sinhronizē ar datubāzi
-conn.commit()
-
-# Aizvēr piekļūvi datu bāzei
-cursor.close()
-conn.close()
-
-# Create the button
-save_button = st.button("Save Data")
-
-# Add the callback function to the button
-if save_button:
-    save_data()
-
-
-L", m_stl, stl)
+        st.metric("STL", m_stl, stl)
     with rez6:
         st.metric("+/-", m_pm, pm)
 
@@ -172,4 +155,18 @@ def save_data():
   )
 
   # Izpilda SQL vaicājums un ievada izvelēti dati tabulā
-  cursor.execut
+  cursor.execute(query, (majnieki, a, viesi, b, datetime.now()))
+
+  # Sinhronizē ar datubāzi
+  conn.commit()
+
+  # Aizvēr piekļūvi datu bāzei
+  cursor.close()
+  conn.close()
+
+# Create the button
+save_button = st.button("Save Data")
+
+# Add the callback function to the button
+if save_button:
+  save_data()
